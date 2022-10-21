@@ -1,0 +1,27 @@
+#root {
+  font-family: 'Lato', sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+  height: 100vh;
+  background-color: #1c1c1c;
+  /* align-items: center; */
+}
+
+.star-rating-icons-container {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	display: block;
+	position: relative;
+	justify-content: space-between;
+}
+
+.radio-item {
+	display: none !important;
+}
+
+.star-radio-label {
+	font-size: 48px;
+	cursor: pointer;
+	margin-left: 5px;
+	margin-right: 5px;
+}
