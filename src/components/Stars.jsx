@@ -1,35 +1,39 @@
-import { useState } from 'react'
+/* eslint-disable arrow-body-style */
+import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Image from 'react-bootstrap/Image'
 
-const Stars = ({ selectedRating, setSelectedRating }) => {
-
-  const toggleStar = e => {
+function Stars({ selectedRating, setSelectedRating }) {
+  const toggleStar = (e) => {
     e.preventDefault()
-    if (Number(e.target.attributes.id.value) === selectedRating) {
+    console.log()
+    if (Number(e.target.value) === selectedRating) {
       setSelectedRating(0)
+      console.log('selectedRating:', selectedRating)
     } else {
-      setSelectedRating(Number(e.target.attributes.id.value))
+      setSelectedRating(Number(e.target.value))
+      console.log('selectedRating:', selectedRating)
     }
   }
 
   return (
-    <>
-      <div className='star-rating-icons-container'>
-        {[1, 2, 3, 4, 5].map(starValue =>
-          <label className="star-radio-label" key={starValue}>
-            <input type="radio" className="radio-item" value={starValue}/>
-            <i id={starValue} onClick={toggleStar}
-              className={starValue <= selectedRating ? "fa-solid fa-star" : "fa-regular fa-star"}>
-            </i>
-          </label>
-        )}
+    <Container className="stars-container">
+      <div className="radio-group">
+        {[1, 2, 3, 4, 5].map((starValue) => {
+          return (
+            <label htmlFor={starValue} className="starsLabel" key={starValue}>
+              label
+              <br />
+              <input type="radio" value={starValue} id={starValue} onClick={toggleStar} key={starValue} aria-label={starValue} />
+              <br />
+              label
+            </label>
+          )
+        })}
       </div>
-    </>
-  );
-};
+      <Image src={`stars/extra_large_${selectedRating}@3x.png`} className="yelp-star-img" />
+    </Container>
+  )
+}
 
-export default Stars;
-
-
-
-
-
+export default Stars

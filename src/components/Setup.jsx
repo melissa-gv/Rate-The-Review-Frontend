@@ -1,10 +1,17 @@
 /* eslint-disable no-console */
-import { useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Spinner from 'react-bootstrap/Spinner'
 
-function Setup({ setReviews, setBusinesses }) {
+function Setup({ setReviews, reviews, setBusinesses }) {
   const [zipcode, setZipcode] = useState(0)
+  const [isStarted, setIsStarted] = useState(false)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -14,11 +21,12 @@ function Setup({ setReviews, setBusinesses }) {
 
   const handleZipcodeSubmit = (e) => {
     e.preventDefault()
+    setIsStarted(true)
     axios.get('http://localhost:3000/businesses', { params: { location: zipcode } })
       .then((response) => {
-        console.log('Setup response:', response.data.businesses)
-        setReviews(response.data.reviews)
+        console.log('Setup response:', response.data)
         setBusinesses(response.data.businesses)
+        setReviews(response.data.reviews)
       })
       .catch((err) => {
         console.log(err)
@@ -29,34 +37,41 @@ function Setup({ setReviews, setBusinesses }) {
   }
 
   return (
-    <div className="col-lg-6 offset-lg-3">
-      <h2>How To Play:</h2>
-      <ol>
-        <li>Enter your zip code</li>
-        <li>Read random review of random local restaurant</li>
-        <li>You have 15 seconds to guess the review rating</li>
-        <li>5 rounds total!</li>
-        <li>Enjoy!</li>
-      </ol>
-      <h2>Scoring</h2>
-      <ul>
-        <li>5 points for accurate guess</li>
-        <li>3 points for being 1 point away</li>
-        <li>-3 for being 2+ points away</li>
-      </ul>
-
-      <h2>Choose Your Location</h2>
-
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">Zip Code</label>
-          <input onChange={handleChange} type="text" maxLength="5" className="form-control" />
-        </div>
-
-        <button onClick={handleZipcodeSubmit} type="submit" className="btn btn-primary">Submit</button>
-      </form>
-
-    </div>
+    <Container className="justify-content-md-center">
+      <br />
+      <Row>
+        <Col>
+          <h2>Enter zipcode:</h2>
+        </Col>
+      </Row>
+      <Form>
+        <Form.Group className="mb-3" controlId="formZipcode">
+          <Form.Label style={{ color: 'white' }}>Zipcode</Form.Label>
+          <Form.Control onChange={handleChange} type="number" placeholder="Zipcode" maxLength="5" required />
+        </Form.Group>
+        {isStarted && reviews.length === 0
+          ? (
+            <Button variant="success" disabled>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              <span className="visually-hidden">Loading...</span>
+              {' '}
+              Loading...
+              {' '}
+            </Button>
+          )
+          : (
+            <Button onClick={handleZipcodeSubmit} variant="success" type="submit">
+              Start
+            </Button>
+          )}
+      </Form>
+    </Container>
   )
 }
 
