@@ -196,7 +196,7 @@ function Results({ reviews, businesses, points }) {
         {'\n'}
       </Row>
       <br />
-      <Row sm={1} md={3}>
+      <Row sm={1} md={1} lg={2}>
         {businesses.map((restaurant, index) => (
           <Col className="result-cards" key={restaurant.id}>
             <Card text="dark" style={{ width: '24rem' }}>

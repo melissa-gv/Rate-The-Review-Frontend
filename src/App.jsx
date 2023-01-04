@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
+import 'firebase/compat/firestore'
+// import { onAuthStateChanged } from 'firebase/auth'
 import Home from './components/Home'
 import Setup from './components/Setup'
 import Play from './components/Play'
 import Results from './components/Results'
-import Login from './components/Login'
-import Signup from './components/Signup'
 import AppNavbar from './components/AppNavbar'
 import Footer from './components/Footer'
 
@@ -14,14 +16,48 @@ function App() {
   const [businesses, setBusinesses] = useState([])
   const [selectedRating, setSelectedRating] = useState(0)
   const [points, setPoints] = useState(0)
+  const [currentUser, setCurrentUser] = useState({})
+  const [isLoggedIn, setIsLoggedIn] = useState()
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true)
+        setCurrentUser({
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        })
+        console.log('logged IN')
+      } else {
+        setCurrentUser({})
+        setIsLoggedIn(false)
+        console.log('logged OUT')
+      }
+      console.log('currentUser:', currentUser)
+    })
+  }, [])
 
   return (
     <>
-      <AppNavbar />
+      <AppNavbar
+        currentUser={currentUser}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+      />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route
+          path="/"
+          element={(
+            <Home
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+            />
+          )}
+        />
         <Route
           path="setup"
           element={(
@@ -55,7 +91,7 @@ function App() {
           )}
         />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
 
   )
