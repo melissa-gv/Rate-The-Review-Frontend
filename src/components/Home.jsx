@@ -4,9 +4,12 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card'
+// import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 import { Link } from 'react-router-dom'
 import AuthenticationUI from './AuthenticationUI'
+import PlayAsGuest from './PlayAsGuest'
 
 function Home({
   currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn,
@@ -46,9 +49,7 @@ function Home({
           )
           : (
             <>
-              <Row>
-                <Link to="/setup"><Button variant="success" size="lg">Play as Guest</Button></Link>
-              </Row>
+              <PlayAsGuest />
               <br />
               <Card bg="dark" text="light" style={authCardStyle}>
                 <Card.Body>

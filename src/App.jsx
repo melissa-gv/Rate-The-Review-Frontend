@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
-// import { onAuthStateChanged } from 'firebase/auth'
 import Home from './components/Home'
 import Setup from './components/Setup'
 import Play from './components/Play'
@@ -28,6 +27,7 @@ function App() {
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
+          pointsEarned: 0,
         })
         console.log('logged IN')
       } else {
