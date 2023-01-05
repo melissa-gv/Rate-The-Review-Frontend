@@ -5,8 +5,6 @@ import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-// import FloatingLabel from 'react-bootstrap/FloatingLabel';
-
 import { Link } from 'react-router-dom'
 import AuthenticationUI from './AuthenticationUI'
 import PlayAsGuest from './PlayAsGuest'
