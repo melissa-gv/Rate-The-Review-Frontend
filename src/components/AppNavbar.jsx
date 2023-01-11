@@ -42,7 +42,7 @@ function AppNavbar({ currentUser, isLoggedIn, setIsLoggedIn }) {
             ? (
               <>
                 <Navbar.Text>
-                  {`Signed in as: ${currentUser.displayName}`}
+                  {`Signed in as: ${currentUser.username}`}
                 </Navbar.Text>
                 &nbsp;
                 &nbsp;

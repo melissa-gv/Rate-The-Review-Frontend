@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Route, Routes } from 'react-router-dom'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
@@ -17,6 +18,17 @@ function App() {
   const [points, setPoints] = useState(0)
   const [currentUser, setCurrentUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState()
+  const [zipcode, setZipcode] = useState(0)
+
+  const SendFBAuthToBackEnd = () => {
+    axios.put('http://localhost:3000/auth', { params: currentUser }, { withCredentials: true })
+      .then((response) => {
+        console.log('Auth server response (Firebase Login):', response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -24,18 +36,19 @@ function App() {
         setIsLoggedIn(true)
         setCurrentUser({
           uid: user.uid,
-          displayName: user.displayName,
+          username: user.displayName,
           email: user.email,
-          photoURL: user.photoURL,
           pointsEarned: 0,
         })
-        console.log('logged IN')
+        if (isLoggedIn) {
+          console.log('logged IN')
+          SendFBAuthToBackEnd()
+        }
       } else {
         setCurrentUser({})
         setIsLoggedIn(false)
-        console.log('logged OUT')
       }
-      console.log('currentUser:', currentUser)
+      console.log('1currentUser:', currentUser)
     })
   }, [])
 
@@ -65,6 +78,8 @@ function App() {
               reviews={reviews}
               setReviews={setReviews}
               setBusinesses={setBusinesses}
+              zipcode={zipcode}
+              setZipcode={setZipcode}
             />
           )}
         />
@@ -77,6 +92,9 @@ function App() {
               setSelectedRating={setSelectedRating}
               points={points}
               setPoints={setPoints}
+              zipcode={zipcode}
+              businesses={businesses}
+              currentUser={currentUser}
             />
           )}
         />

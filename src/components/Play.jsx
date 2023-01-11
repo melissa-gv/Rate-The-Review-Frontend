@@ -1,5 +1,6 @@
 /* eslint-disable object-curly-newline */
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -8,7 +9,9 @@ import Alert from 'react-bootstrap/Alert'
 import Stars from './Stars'
 import Timer from './Timer'
 
-function Play({ reviews, selectedRating, setSelectedRating, points, setPoints }) {
+function Play({
+  reviews, selectedRating, setSelectedRating, points, setPoints, zipcode, businesses, currentUser,
+}) {
   const navigate = useNavigate()
   const INITIAL_SECONDS = 15
   const [seconds, setSeconds] = useState(INITIAL_SECONDS)
@@ -41,6 +44,22 @@ function Play({ reviews, selectedRating, setSelectedRating, points, setPoints })
     }
   }, [seconds])
 
+  const SendResultsToBackEnd = () => {
+    const params = {
+      username: currentUser.username,
+      zipcode,
+      score: points,
+      restaurants: businesses,
+    }
+    axios.put('http://localhost:3000/results', { params })
+      .then((response) => {
+        console.log('Results server response:', response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   const handleSubmitAnswer = (e) => {
     e.preventDefault()
     if (round <= 5 && !viewResult) {
@@ -55,6 +74,7 @@ function Play({ reviews, selectedRating, setSelectedRating, points, setPoints })
       setIsRunning(true)
     } else if (round === 5 && viewResult) {
       navigate('/results')
+      SendResultsToBackEnd()
     }
   }
 

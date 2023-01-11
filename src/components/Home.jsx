@@ -47,7 +47,10 @@ function Home({
           )
           : (
             <>
-              <PlayAsGuest />
+              <PlayAsGuest
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
               <br />
               <Card bg="dark" text="light" style={authCardStyle}>
                 <Card.Body>
@@ -56,6 +59,7 @@ function Home({
                   </Row>
                   <Row>
                     <AuthenticationUI
+                    // FIXME - are these necessary?; unsused
                       currentUser={currentUser}
                       setCurrentUser={setCurrentUser}
                       isLoggedIn={isLoggedIn}

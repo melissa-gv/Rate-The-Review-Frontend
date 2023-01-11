@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
@@ -7,21 +8,35 @@ import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
 import { useNavigate } from 'react-router-dom'
 
-function PlayAsGuest() {
+function PlayAsGuest({ currentUser, setCurrentUser }) {
   const [open, setOpen] = useState(false)
-  const [validated, setValidated] = useState(false)
+
   const navigate = useNavigate()
 
+  const handleChange = (e) => {
+    e.preventDefault()
+    // FIXME - should this setCurrentUser be set in a variable then set as state on form submission
+    setCurrentUser({ username: e.target.value })
+  }
+
   const handleSubmit = (event) => {
+    console.log('2currentUser:', currentUser)
+    event.preventDefault()
     const form = event.currentTarget
     if (form.checkValidity() === false) {
-      event.preventDefault()
       event.stopPropagation()
     } else {
-      navigate('/setup')
+      axios.put('http://localhost:3000/auth', { params: currentUser }, { withCredentials: true })
+        .then((response) => {
+          console.log('Auth server response:', response.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+        .then(() => {
+          navigate('/setup')
+        })
     }
-
-    setValidated(true)
   }
 
   return (
@@ -53,6 +68,7 @@ function PlayAsGuest() {
                   @
                 </InputGroup.Text>
                 <Form.Control
+                  onChange={handleChange}
                   required
                   type="text"
                   placeholder="Username"
@@ -80,8 +96,8 @@ function PlayAsGuest() {
             <Col xs="auto" className="my-1">
               <Button type="submit">Submit</Button>
             </Col>
-
           </Row>
+
         </Form>
 
       </Collapse>

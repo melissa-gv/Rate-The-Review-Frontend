@@ -9,19 +9,23 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 
-function Setup({ setReviews, reviews, setBusinesses }) {
-  const [zipcode, setZipcode] = useState(0)
+function Setup({
+  setReviews, reviews, setBusinesses, zipcode, setZipcode,
+}) {
   const [isStarted, setIsStarted] = useState(false)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
     e.preventDefault()
+    // FIXME - should this setZipCode be set in a variable then set as state on form submission
     setZipcode(e.target.value)
   }
 
   const handleZipcodeSubmit = (e) => {
     e.preventDefault()
+    // FIXME - rename this variable to more clearly define its purpose
     setIsStarted(true)
+    // FIXME - path prefix should be an ENV variable
     axios.get('http://localhost:3000/businesses', { params: { location: zipcode } })
       .then((response) => {
         console.log('Setup response:', response.data)
