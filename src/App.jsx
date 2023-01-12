@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Setup from './components/Setup'
 import Play from './components/Play'
 import Results from './components/Results'
+import Leaderboard from './components/Leaderboard'
 import AppNavbar from './components/AppNavbar'
 import Footer from './components/Footer'
 
@@ -106,6 +107,12 @@ function App() {
               businesses={businesses}
               points={points}
             />
+          )}
+        />
+        <Route
+          path="leaderboard"
+          element={(
+            <Leaderboard />
           )}
         />
       </Routes>
