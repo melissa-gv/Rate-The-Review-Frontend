@@ -35,7 +35,7 @@ function Home({
         <Image src="Rate-the-Review-logos-white.png" style={logoStyle} />
       </Row>
       <Row>
-        <h4>Guess the Yelp review ratings of your local restaurants.</h4>
+        <h4><em>Guess the Yelp review ratings of your local restaurants.</em></h4>
       </Row>
       <br />
       {

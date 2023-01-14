@@ -3,7 +3,8 @@ html {
 }
 
 #root {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+	font-family:Verdana, Tahoma, sans-serif;
   color: rgba(255, 255, 255, 0.87);
 	min-height: 100vh;
   background-color: #1c1c1c;

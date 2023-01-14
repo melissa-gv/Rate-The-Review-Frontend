@@ -21,7 +21,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState()
   const [zipcode, setZipcode] = useState(0)
 
-  const SendFBAuthToBackEnd = () => {
+  const SendFBAuthToBackend = () => {
     axios.put('http://localhost:3000/auth', { params: currentUser }, { withCredentials: true })
       .then((response) => {
         console.log('Auth server response (Firebase Login):', response.data)
@@ -43,13 +43,11 @@ function App() {
         })
         if (isLoggedIn) {
           console.log('logged IN')
-          SendFBAuthToBackEnd()
+          SendFBAuthToBackend()
         }
       } else {
-        setCurrentUser({})
         setIsLoggedIn(false)
       }
-      console.log('1currentUser:', currentUser)
     })
   }, [])
 
@@ -57,6 +55,7 @@ function App() {
     <>
       <AppNavbar
         currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
       />

@@ -1,15 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import firebase from 'firebase/compat/app'
 
-function AppNavbar({ currentUser, isLoggedIn, setIsLoggedIn }) {
+function AppNavbar({
+  currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn,
+}) {
+  const navigate = useNavigate()
+
   const logout = () => {
     firebase.auth().signOut()
+    setCurrentUser({})
     setIsLoggedIn(false)
-    console.log('logged out')
+    navigate('/')
   }
 
   return (
@@ -34,8 +40,7 @@ function AppNavbar({ currentUser, isLoggedIn, setIsLoggedIn }) {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="play">Play</Nav.Link>
-            <Nav.Link href="results">Results</Nav.Link>
+            <Nav.Link href={currentUser.username ? 'setup' : '/'}>Play</Nav.Link>
             <Nav.Link href="leaderboard">Leaderboard</Nav.Link>
           </Nav>
 

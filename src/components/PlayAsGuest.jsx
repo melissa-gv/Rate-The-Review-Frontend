@@ -13,14 +13,13 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
 
   const navigate = useNavigate()
 
-  const handleChange = (e) => {
+  const handleGuestUsernameChange = (e) => {
     e.preventDefault()
     // FIXME - should this setCurrentUser be set in a variable then set as state on form submission
     setCurrentUser({ username: e.target.value })
   }
 
-  const handleSubmit = (event) => {
-    console.log('2currentUser:', currentUser)
+  const handleSubmitGuestUsername = (event) => {
     event.preventDefault()
     const form = event.currentTarget
     if (form.checkValidity() === false) {
@@ -58,7 +57,7 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
       <br />
       <Collapse in={open}>
 
-        <Form noValidate onSubmit={handleSubmit}>
+        <Form noValidate onSubmit={handleSubmitGuestUsername}>
           <Row className="align-items-center justify-content-center">
 
             <Form.Group as={Col} md="4" className="my-1 was-validated">
@@ -68,7 +67,7 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
                   @
                 </InputGroup.Text>
                 <Form.Control
-                  onChange={handleChange}
+                  onChange={handleGuestUsernameChange}
                   required
                   type="text"
                   placeholder="Username"
