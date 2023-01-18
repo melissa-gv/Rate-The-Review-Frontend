@@ -21,7 +21,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('content-wrap')).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
