@@ -13,8 +13,7 @@ function AuthenticationUI() {
     // 2) Set up sign-in methods
     const uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult(authResult, redirectUrl) {
-          console.log('signInSuccessWithAuthResult:', 'authResult:', authResult, 'redirectUrl:', redirectUrl)
+        signInSuccessWithAuthResult() {
           return true
         },
         uiShown() {

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -9,26 +8,24 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 
+const { VITE_HOST } = import.meta.env
+
 function Setup({
   setReviews, reviews, setBusinesses, zipcode, setZipcode,
 }) {
-  const [isStarted, setIsStarted] = useState(false)
+  const [isGameStarted, setIsGameStarted] = useState(false)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
     e.preventDefault()
-    // FIXME - should this setZipCode be set in a variable then set as state on form submission
     setZipcode(e.target.value)
   }
 
   const handleZipcodeSubmit = (e) => {
     e.preventDefault()
-    // FIXME - rename this variable to more clearly define its purpose
-    setIsStarted(true)
-    // FIXME - path prefix should be an ENV variable
-    axios.get('http://localhost:3000/businesses', { params: { location: zipcode } })
+    setIsGameStarted(true)
+    axios.get(`${VITE_HOST}/businesses`, { params: { location: zipcode } })
       .then((response) => {
-        console.log('Setup response:', response.data)
         setBusinesses(response.data.businesses)
         setReviews(response.data.reviews)
       })
@@ -53,7 +50,7 @@ function Setup({
           <Form.Label style={{ color: 'white' }}>Zipcode</Form.Label>
           <Form.Control onChange={handleChange} type="number" placeholder="Zipcode" maxLength="5" required />
         </Form.Group>
-        {isStarted && reviews.length === 0
+        {isGameStarted && !reviews.length
           ? (
             <Button variant="success" disabled>
               <Spinner

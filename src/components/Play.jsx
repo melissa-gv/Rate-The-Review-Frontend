@@ -9,32 +9,56 @@ import Alert from 'react-bootstrap/Alert'
 import Stars from './Stars'
 import Timer from './Timer'
 
+const { VITE_HOST } = import.meta.env
+
 function Play({
-  reviews, selectedRating, setSelectedRating, points, setPoints, zipcode, businesses, currentUser,
+  reviews, businesses, selectedRating, setSelectedRating, points, setPoints, zipcode, currentUser,
 }) {
   const navigate = useNavigate()
   const INITIAL_SECONDS = 15
   const [seconds, setSeconds] = useState(INITIAL_SECONDS)
-  const [isRunning, setIsRunning] = useState(true)
+  const [isTimerRunning, setIsTimerRunning] = useState(true)
   const [round, setRound] = useState(0)
   const [viewResult, setViewResult] = useState(false)
-  const [roundPoints, setRoundPoints] = useState(0)
+  const [variantColor, setVariantColor] = useState('')
+  const [resultText, setResultText] = useState()
 
   const calculatePoints = () => {
     let curRoundPts = 0
+    let variantColorTmp = ''
     if (selectedRating === 0) {
       curRoundPts = -3
+      variantColorTmp = 'secondary'
     } else if (selectedRating === reviews[round].rating) {
       curRoundPts = 5
+      variantColorTmp = 'success'
     } else if (
       selectedRating + 1 === reviews[round].rating
       || selectedRating - 1 === reviews[round].rating) {
       curRoundPts = 3
+      variantColorTmp = 'warning'
     } else {
       curRoundPts = -3
+      variantColorTmp = 'danger'
     }
-    setRoundPoints(curRoundPts)
+    setVariantColor(variantColorTmp)
     setPoints(points + curRoundPts)
+    const starsPlurality = selectedRating === 1 ? 'star' : 'stars'
+    const resultTextTmp = {
+      secondary: `💤 Too slow... 💤
+    You guessed ${selectedRating} ${starsPlurality}. Correct answer was ${reviews[round].rating} stars.
+    You lost ${curRoundPts} points. Total points: ${curRoundPts + points} points.`,
+      danger: `❌ Sorry, that's incorrect ❌
+    You guessed ${selectedRating} ${starsPlurality}. Correct answer was ${reviews[round].rating} stars.
+    You lost ${curRoundPts} points. Total points: ${curRoundPts + points} points.`,
+      warning: `😅 So close! 😅
+    You guessed ${selectedRating} ${starsPlurality}. Correct answer was ${reviews[round].rating} stars.
+    You earned ${curRoundPts} points. Total points: ${curRoundPts + points} points.`,
+      success: `✅ That's correct! ✅
+      Rating: ${reviews[round].rating} ${starsPlurality}
+      You earned ${curRoundPts} points. Total points: ${curRoundPts + points} points.`,
+    }
+    setResultText(resultTextTmp[variantColorTmp])
   }
 
   useEffect(() => {
@@ -51,19 +75,13 @@ function Play({
       score: points,
       restaurants: businesses,
     }
-    axios.put('http://localhost:3000/results', { params })
-      .then((response) => {
-        console.log('Results server response:', response.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    axios.put(`${VITE_HOST}/results`, { params })
   }
 
   const handleSubmitAnswer = (e) => {
     e.preventDefault()
     if (round <= 5 && !viewResult) {
-      setIsRunning(false)
+      setIsTimerRunning(false)
       calculatePoints()
       setViewResult(true)
     } else if (round < 5 && viewResult) {
@@ -71,7 +89,7 @@ function Play({
       setRound(round + 1)
       setSelectedRating(0)
       setSeconds(INITIAL_SECONDS)
-      setIsRunning(true)
+      setIsTimerRunning(true)
     } else if (round === 5 && viewResult) {
       SendGameResultsToBackend()
       navigate('/results')
@@ -79,19 +97,16 @@ function Play({
   }
 
   return (
-    <Container className="justify-content-center text-center">
+    <Container className="justify-content-center text-center" style={{ maxWidth: '60rem' }}>
       <br />
       {`Round ${round + 1} / 6`}
       <Card
         bg="dark"
         text="white"
         className="mb-2"
-        style={{
-          width: '40rem', marginLeft: 'auto', marginRight: 'auto',
-        }}
       >
         <Card.Header>
-          <Timer seconds={seconds} setSeconds={setSeconds} isRunning={isRunning} />
+          <Timer seconds={seconds} setSeconds={setSeconds} isRunning={isTimerRunning} />
         </Card.Header>
 
         <Card.Body>
@@ -100,7 +115,7 @@ function Play({
           </Card.Text>
 
           <Stars selectedRating={selectedRating} setSelectedRating={setSelectedRating} />
-
+          <br />
           <Button onClick={handleSubmitAnswer} variant="success" type="submit" size="lg">
             {round === 5 && viewResult ? 'Finish' : 'Next'}
           </Button>
@@ -108,21 +123,14 @@ function Play({
         </Card.Body>
 
       </Card>
+
       {viewResult
         ? (
           <Alert
-            variant="warning"
-            style={{
-              width: '40rem', marginLeft: 'auto', marginRight: 'auto',
-            }}
+            variant={variantColor}
+            className="alert-banner"
           >
-            {`Your guess: ${selectedRating} stars`}
-            <br />
-            {`Correct Answer: ${reviews[round].rating} stars`}
-            <br />
-            {`Points earned this round: ${roundPoints} points`}
-            <br />
-            {`Total points: ${points} points`}
+            {resultText}
           </Alert>
         )
         : null}

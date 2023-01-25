@@ -20,7 +20,7 @@ function Results({ reviews, businesses, points }) {
       <br />
       <Row>
         <h1 className="text-center">
-          {`You got ${points} point${points === 1 ? '' : 's'}!`}
+          {`🎉 You got ${points} point${points === 1 ? '' : 's'}! 🎉`}
         </h1>
         {'\n'}
       </Row>
@@ -30,14 +30,14 @@ function Results({ reviews, businesses, points }) {
           <Col className="result-cards" key={restaurant.id}>
             <Card text="dark" style={{ width: '24rem' }}>
               <a href={restaurant.url} target="_blank" rel="noreferrer">
-                <Card.Img variant="top" src={restaurant.image_url ? restaurant.image_url : 'placeholder-image.webp'} style={{ cursor: 'pointer', objectFit: 'cover', height: '15rem' }} />
+                <Card.Img alt="restaurant photo" variant="top" src={restaurant.image_url ? restaurant.image_url : 'placeholder-image.webp'} style={{ cursor: 'pointer', objectFit: 'cover', height: '15rem' }} />
               </a>
 
               <Card.Body>
                 <Card.Title>{`${restaurant.name}`}</Card.Title>
                 <Card.Text as="div">
                   <Image src={`/stars/large/stars_large_${restaurant.rating}.png`} />
-                  {` (${restaurant.review_count})`}
+                  <span className="text-muted">{` ${restaurant.review_count} Reviews`}</span>
                   <br />
 
                   Price:&nbsp;
@@ -54,7 +54,10 @@ function Results({ reviews, businesses, points }) {
                   {`${restaurant.display_phone}`}
                   <br />
 
-                  <Button href={`${restaurant.url}`} target="_blank" style={{ margin: '10px 0px' }} variant="outline-danger">Yelp Page</Button>
+                  <Button href={`${restaurant.url}`} target="_blank" style={{ margin: '10px 0px' }} variant="light">
+                    <img alt="yelp logo links to restaurant's Yelp page" src="yelp_logo.svg" style={{ height: '1.5rem' }} />
+                    &nbsp;Page
+                  </Button>
                   <br />
 
                   <Accordion alwaysOpen>

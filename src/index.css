@@ -5,7 +5,7 @@ html {
 #root {
 	position: relative;
 	min-height: 100vh;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.87);
   background-color: #1c1c1c;
 }
@@ -25,36 +25,174 @@ html {
 	text-align: 'center';
 }
 
-.stars-container{
+.stars-container {
 	position: relative;
+}
+
+.yelp-star-img {
+	z-index: 2;
+	margin: 1% 0;
 }
 
 .radio-group{
 	position: absolute;
+	left: 40.5%;
 	z-index: 1;
-	top: 25px;
-	left: 55px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
 }
 
-input[type="radio"]{
-  margin: 0px 43px;
+input[type="radio"] {
 	cursor: pointer;
 	opacity: 0;
 }
 
-.starsLabel {
+.stars-label {
 	text-align: center;
 	cursor: pointer;
 	opacity: 0;
+	margin: 1% 20%;
 	}
 
-.yelp-star-img{
-	z-index: 2;
-	padding: 10px
+/* Smaller Than Galaxy Fold */
+@media screen and (max-width: 279px) {
+	.stars-label {
+		margin: -12% 0%;
+	}
+
+	.radio-group{
+		left: -10%;
+	}
+}
+
+/* Galaxy Fold */
+@media screen and (min-width: 280px) {
+	.stars-label {
+		margin: -8% 3.3%;
+	}
+
+	.radio-group{
+		left: 12.5%;
+	}
+}
+
+/* Transition 1 */
+@media screen and (min-width: 300px) {
+	.stars-label {
+		margin: -4% 6.5%;
+	}
+
+	.radio-group{
+		left: 19%;
+	}
+}
+
+/* iphone SE */
+@media screen and (min-width: 375px) {
+	.stars-label {
+		margin: -2% 9%;
+	}
+
+	.radio-group{
+		left: 23.5%;
+	}
+}
+
+/* iphone 12 Pro */
+@media screen and (min-width: 390px) {
+	.stars-label {
+		margin: -1% 10%;
+	}
+
+	.radio-group{
+		left: 24.7%;
+	}
+}
+
+/* Transition 2 */
+@media screen and (min-width: 420px) {
+	.stars-label {
+		margin: 0% 12%;
+	}
+
+	.radio-group{
+		left: 27%;
+	}
+}
+
+/* iphone 12 Pro */
+@media screen and (min-width: 480px) {
+	.stars-label {
+		margin: 3% 15.5%;
+	}
+
+	.radio-group{
+		left: 30%;
+	}
+}
+
+/* Transition 3 */
+@media screen and (min-width: 530px) {
+	.stars-label {
+		margin: 5% 18.25%;
+	}
+
+	.radio-group{
+		left: 32%;
+	}
+}
+
+/* Bootstrap sm breakpoint */
+@media screen and (min-width: 576px) {
+	.stars-label {
+		margin: 10% 19%;
+	}
+
+	.radio-group{
+		left: 34%;
+	}
+}
+
+/* Transition 4 */
+@media screen and (min-width: 670px) {
+	.stars-label {
+		margin: 10% 19%;
+	}
+
+	.radio-group{
+		left: 38%;
+	}
+}
+
+/* Bootstrap md breakpoint */
+@media screen and (min-width: 768px) {
+	.stars-label {
+		margin: 10% 19%;
+	}
+
+	.radio-group{
+		left: 38%;
+	}
+}
+
+/* Bootstrap lg breakpoint */
+@media screen and (min-width: 992px) {
+	.stars-label {
+		margin: 10% 19.5%;
+	}
+
+	.radio-group{
+		left: 40.5%;
+	}
 }
 
 .result-cards {
 	display: flex;
   justify-content: center;
 	padding: 25px 10px;
+}
+
+.alert-banner {
+	white-space: pre-line;
 }

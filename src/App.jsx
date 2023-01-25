@@ -12,6 +12,8 @@ import Leaderboard from './components/Leaderboard'
 import AppNavbar from './components/AppNavbar'
 import Footer from './components/Footer'
 
+const { VITE_HOST } = import.meta.env
+
 function App() {
   const [reviews, setReviews] = useState([])
   const [businesses, setBusinesses] = useState([])
@@ -22,13 +24,7 @@ function App() {
   const [zipcode, setZipcode] = useState(0)
 
   const SendFBAuthToBackend = () => {
-    axios.put('http://localhost:3000/auth', { params: currentUser }, { withCredentials: true })
-      .then((response) => {
-        console.log('Auth server response (Firebase Login):', response.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    axios.put(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
   }
 
   useEffect(() => {
@@ -39,14 +35,11 @@ function App() {
           uid: user.uid,
           username: user.displayName,
           email: user.email,
-          pointsEarned: 0,
         })
-        if (isLoggedIn) {
-          console.log('logged IN')
-          SendFBAuthToBackend()
-        }
+        SendFBAuthToBackend()
       } else {
         setIsLoggedIn(false)
+        setCurrentUser({})
       }
     })
   }, [])
@@ -55,9 +48,7 @@ function App() {
     <>
       <AppNavbar
         currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
         isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
       />
       <Routes>
         <Route
@@ -67,7 +58,6 @@ function App() {
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
               isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
             />
           )}
         />

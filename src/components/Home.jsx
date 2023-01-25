@@ -9,16 +9,14 @@ import { Link } from 'react-router-dom'
 import AuthenticationUI from './AuthenticationUI'
 import PlayAsGuest from './PlayAsGuest'
 
-function Home({
-  currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn,
-}) {
+function Home({ currentUser, setCurrentUser, isLoggedIn }) {
+  // FIXME move this to CSS
   const logoStyle = {
-    width: '450px',
-    height: '450px',
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: '1px',
+    minWidth: '270px',
+    maxWidth: '450px',
   }
 
   const authCardStyle = {
@@ -58,13 +56,7 @@ function Home({
                     <h5> Or create an account</h5>
                   </Row>
                   <Row>
-                    <AuthenticationUI
-                    // FIXME - are these necessary?; unsused
-                      currentUser={currentUser}
-                      setCurrentUser={setCurrentUser}
-                      isLoggedIn={isLoggedIn}
-                      setIsLoggedIn={setIsLoggedIn}
-                    />
+                    <AuthenticationUI />
                   </Row>
                 </Card.Body>
               </Card>

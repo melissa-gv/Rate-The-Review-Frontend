@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
-
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css'
 

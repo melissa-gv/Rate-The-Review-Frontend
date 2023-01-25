@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
 import { useNavigate } from 'react-router-dom'
 
+const { VITE_HOST } = import.meta.env
+
 function PlayAsGuest({ currentUser, setCurrentUser }) {
   const [open, setOpen] = useState(false)
 
@@ -15,7 +17,6 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
 
   const handleGuestUsernameChange = (e) => {
     e.preventDefault()
-    // FIXME - should this setCurrentUser be set in a variable then set as state on form submission
     setCurrentUser({ username: e.target.value })
   }
 
@@ -25,10 +26,7 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
     if (form.checkValidity() === false) {
       event.stopPropagation()
     } else {
-      axios.put('http://localhost:3000/auth', { params: currentUser }, { withCredentials: true })
-        .then((response) => {
-          console.log('Auth server response:', response.data)
-        })
+      axios.put(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
         .catch((err) => {
           console.log(err)
         })

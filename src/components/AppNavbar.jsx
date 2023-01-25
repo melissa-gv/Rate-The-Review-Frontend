@@ -6,15 +6,11 @@ import Nav from 'react-bootstrap/Nav'
 import Button from 'react-bootstrap/Button'
 import firebase from 'firebase/compat/app'
 
-function AppNavbar({
-  currentUser, setCurrentUser, isLoggedIn, setIsLoggedIn,
-}) {
+function AppNavbar({ currentUser, isLoggedIn }) {
   const navigate = useNavigate()
 
   const logout = () => {
     firebase.auth().signOut()
-    setCurrentUser({})
-    setIsLoggedIn(false)
     navigate('/')
   }
 
@@ -23,7 +19,7 @@ function AppNavbar({
       <Container fluid>
         <Navbar.Brand href="/">
           <img
-            alt=""
+            alt="logo"
             src="/Rate-the-Review-logos-black-cropped.png"
             width="30"
             height="30"

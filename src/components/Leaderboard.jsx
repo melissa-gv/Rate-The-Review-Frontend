@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row'
 import Table from 'react-bootstrap/Table'
 import Image from 'react-bootstrap/Image'
 
+const { VITE_HOST } = import.meta.env
+
 function Leaderboard() {
   const [topScores, setTopScores] = useState([])
   const logoStyle = {
@@ -17,15 +19,13 @@ function Leaderboard() {
   }
 
   const GetLeaderboardStats = () => {
-    axios.get('http://localhost:3000/allUsers')
+    axios.get(`${VITE_HOST}/allUsers`)
       .then((response) => {
-        console.log('Leaderboard Stats', response.data)
         setTopScores(response.data)
       })
       .catch((err) => {
         console.log(err)
       })
-    console.log('topScores:', topScores)
   }
 
   const formatDate = (dateStr) => {
@@ -43,7 +43,7 @@ function Leaderboard() {
         <Image src="Rate-the-Review-logos-white.png" style={logoStyle} />
       </Row>
       <Row>
-        <h2>Leaderboard</h2>
+        <h2>🥇 Leaderboard 🥇</h2>
       </Row>
       <br />
       <Row className="justify-content-center">
