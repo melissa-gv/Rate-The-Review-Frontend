@@ -1,6 +1,6 @@
 # Rate The Review
 
-<p align="center"><img alt="Rate The Review Logo" src="public/Rate%20the%20Review-logos-white.png" width="400" /></p>
+<p align="center"><img alt="Rate The Review Logo" src="public/Rate-the-Review-logos-white.png" width="400" /></p>
 
 ## Overview
 Rate the Review is an online web-app game in which users input a zipcode and are prompted with three random local restaurants' reviews and guess the review rating.
@@ -74,15 +74,20 @@ The leaderboard shows the Top Ten scores. This was created by querying the Mongo
 
 ## Challenges
 1. The Yelp Fusion API provides review excerpts that are capped at ~155 characters. As this was not conducive to an enjoyable playing experience, I opted to perform a hybrid approach in which I obtained the business information from the Yelp API and then use the response data to perform a query on the site to obtain the full review text. I used the [jsdom](https://github.com/jsdom/jsdom) library to emulate a browser and extract the necessary information.
-2. Per [Yelp display requirements](https://www.yelp.com/developers/display_requirements), Yelp-branded stars must be used when representing a Yelp rating. As such, I used Yelp's stars imagery as labels for radio buttons which where then heavily customized using CSS to utilize the stars as voting buttons. 
-3.
+2. Per [Yelp display requirements](https://www.yelp.com/developers/display_requirements), Yelp-branded stars must be used when representing a Yelp rating. As such, I overlayed Yelp's stars imagery over radion buttons and label, which where then heavily customized using CSS to utilize the stars as voting buttons. 
+3. To ensure a consistent game experience across various devices, including mobile, I wanted to make the design responsive to all viewports. Bootstrap faciliated much of the process, but it was also necessary to use custom breakpoints and CSS media queries to show a clean UI for varying screen sizes.
 
 
 
 ### Responsive Resizing
 Responsive Resizing was kept in mind to accomodate various types of mobile devices.
-<img width="394" alt="image" src="https://user-images.githubusercontent.com/104800030/213821120-86652dcf-b652-4ab2-b89b-00c50b91e4fe.png">
 
-<img width="393" alt="image" src="https://user-images.githubusercontent.com/104800030/213821000-47ac8776-2df7-4405-8eda-a4b0d3788d8b.png">
+#### iPhone
+<img width="200" alt="home-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214645530-9841c891-c0d8-452d-ac4d-ba5cfc65a7f1.png"> <img width="200" alt="play-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214645792-71dab4ce-1092-4748-988c-af49c5f5ec2e.png">
 
+#### Galaxy S12 Ultra
+<img width="200" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646172-da273f4b-9bb3-45e8-812f-c48338ba8af2.png"> <img width="200" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646353-70ee7e02-a470-4748-973a-5a796e88defb.png">
+<img width="200" alt="" src="">
 
+#### Google Pixel 6 Pro
+<img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif">
