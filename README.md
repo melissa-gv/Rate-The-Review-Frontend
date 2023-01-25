@@ -78,16 +78,14 @@ The leaderboard shows the Top Ten scores. This was created by querying the Mongo
 3. To ensure a consistent game experience across various devices, including mobile, I wanted to make the design responsive to all viewports. Bootstrap faciliated much of the process, but it was also necessary to use custom breakpoints and CSS media queries to show a clean UI for varying screen sizes.
 
 
-
 ### Responsive Resizing
 Responsive Resizing was kept in mind to accomodate various types of mobile devices.
 
 #### iPhone
-<img width="200" alt="home-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214645530-9841c891-c0d8-452d-ac4d-ba5cfc65a7f1.png"> <img width="200" alt="play-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214645792-71dab4ce-1092-4748-988c-af49c5f5ec2e.png">
+<img width="250" alt="home-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214650148-27fab73e-9122-490b-aad1-1607e3da6f2d.png"> <img width="250" alt="play-iphone12ProMax" src="https://user-images.githubusercontent.com/104800030/214651459-b4dd8c09-f29d-4444-b38b-932b5a9ff414.png">
 
 #### Galaxy S12 Ultra
-<img width="200" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646172-da273f4b-9bb3-45e8-812f-c48338ba8af2.png"> <img width="200" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646353-70ee7e02-a470-4748-973a-5a796e88defb.png">
-<img width="200" alt="" src="">
+<img width="250" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646172-da273f4b-9bb3-45e8-812f-c48338ba8af2.png"> <img width="250" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646353-70ee7e02-a470-4748-973a-5a796e88defb.png">
 
 #### Google Pixel 6 Pro
 <img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif">
