@@ -87,4 +87,4 @@ The leaderboard shows the Top Ten scores. This was created by querying the Mongo
 
 
 ## Contact Me
-You can reach me at melissagilv@gmail.com or message me on [LinkedIn](https://www.linkedin.com/in/melissa-gv/)
+💬 You can reach me at melissagilv@gmail.com or message me on [LinkedIn](https://www.linkedin.com/in/melissa-gv/).
