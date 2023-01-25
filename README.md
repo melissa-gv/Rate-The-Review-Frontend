@@ -29,6 +29,26 @@ Rate the Review is an online web-app game in which users enter a zipcode and are
 ### Background
 I developed this app while I was a student at Hack Reactor completing a Software Engineering Immersive program. This app was part of a solo-sprint in which we were tasked with creating a minimum viable product (MVP) in two days. I have added additonal functionality and other enhancements upon completion of the program. 
 
+### How to Play
+#### Game setup:
+Users enter the zipcode for the location in which they'd like to play.
+
+<p align="center"><img width="800" alt="game-setup screen" src="https://user-images.githubusercontent.com/104800030/213586319-78c6f097-0e23-433b-b2cc-be8f818d671b.png"></p>
+
+#### Game Play:
+Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
+
+<img width="333" alt="correct-response-screen" src="https://user-images.githubusercontent.com/104800030/213590524-71459e9f-298d-4679-bbc8-3111664825f2.png"> <img width="333" alt="close-response-screen" src="https://user-images.githubusercontent.com/104800030/213590559-f4428f6d-e00b-4a41-8c71-b79cf1e5b461.png"> <img width="333" alt="incorrect-response-screen" src="https://user-images.githubusercontent.com/104800030/213590691-eb99b1f3-39a2-4027-9ef1-c1f07036cfcf.png">
+
+#### Results Page:
+Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the the reviews. 
+<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/213817858-d18e5926-caaf-4740-9983-552bdf691e9e.png"> <img width="800" alt="results-page-reviews-expanded" src="https://user-images.githubusercontent.com/104800030/213817805-2b1547e5-9948-4d0d-9bef-09f844c3b5fe.png"></p>
+
+#### Leaderboard:
+The leaderboard shows the Top Ten scores. This was created by querying the MongoDB database for the top scores usings an aggregate function.
+
+<p align="center"><img width="800" alt="leaderboard" src="https://user-images.githubusercontent.com/104800030/213587955-8d07dab9-48d2-4cf6-9d01-c2684bd4f031.png"></p>
+
 ### Authentication
 #### Firebase Authentication with multiple providers
 Users have the option to sign-in with either their Google, Facebook, or email accounts. This will ensure that game data is saved for each user.
@@ -58,26 +78,6 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 
 #### Google Pixel 6 Pro
 <p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif"></p>
-
-### How to Play
-#### Game setup:
-Users enter the zipcode for the location in which they'd like to play.
-
-<p align="center"><img width="800" alt="game-setup screen" src="https://user-images.githubusercontent.com/104800030/213586319-78c6f097-0e23-433b-b2cc-be8f818d671b.png"></p>
-
-#### Game Play:
-Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
-
-<img width="333" alt="correct-response-screen" src="https://user-images.githubusercontent.com/104800030/213590524-71459e9f-298d-4679-bbc8-3111664825f2.png"> <img width="333" alt="close-response-screen" src="https://user-images.githubusercontent.com/104800030/213590559-f4428f6d-e00b-4a41-8c71-b79cf1e5b461.png"> <img width="333" alt="incorrect-response-screen" src="https://user-images.githubusercontent.com/104800030/213590691-eb99b1f3-39a2-4027-9ef1-c1f07036cfcf.png">
-
-#### Results Page:
-Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the the reviews. 
-<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/213817858-d18e5926-caaf-4740-9983-552bdf691e9e.png"> <img width="800" alt="results-page-reviews-expanded" src="https://user-images.githubusercontent.com/104800030/213817805-2b1547e5-9948-4d0d-9bef-09f844c3b5fe.png"></p>
-
-#### Leaderboard:
-The leaderboard shows the Top Ten scores. This was created by querying the MongoDB database for the top scores usings an aggregate function.
-
-<p align="center"><img width="800" alt="leaderboard" src="https://user-images.githubusercontent.com/104800030/213587955-8d07dab9-48d2-4cf6-9d01-c2684bd4f031.png"></p>
 
 
 ## Challenges
