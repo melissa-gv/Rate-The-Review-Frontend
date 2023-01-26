@@ -31,9 +31,9 @@ I developed this app while I was a student at Hack Reactor completing a Software
 
 ### How to Play
 #### Game setup:
-Users enter the zipcode for the location in which they'd like to play.
+Once a user setups up a username or is authenticated they can begin a game. In the game setup screen, they can enter a zipcode for their preferred playing location. Once a zipcode is submitted, the app then fetches restaurants and reviews from from the Yelp Fusion API. For the full backend code, please refer to [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend).
 
-<p align="center"><img width="800" alt="game-setup screen" src="https://user-images.githubusercontent.com/104800030/213586319-78c6f097-0e23-433b-b2cc-be8f818d671b.png"></p>
+<p align="center"><img width="800" alt="fullscreen view of home page" src="https://user-images.githubusercontent.com/104800030/214908912-e8ddca7e-db66-4c6a-9ae0-283b0755ffb7.gif"></p>
 
 #### Game Play:
 Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
