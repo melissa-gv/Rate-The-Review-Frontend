@@ -48,7 +48,7 @@ function Setup({
       <Form>
         <Form.Group className="mb-3" controlId="formZipcode">
           <Form.Label style={{ color: 'white' }}>Zipcode</Form.Label>
-          <Form.Control onChange={handleChange} type="number" placeholder="Zipcode" maxLength="5" required />
+          <Form.Control required onChange={handleChange} type="number" pattern="[0-9]*" placeholder="Zipcode" inputMode="numeric" />
         </Form.Group>
         {isGameStarted && !reviews.length
           ? (
