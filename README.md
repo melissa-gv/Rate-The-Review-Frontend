@@ -79,7 +79,7 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 
 
 #### Google Pixel 6 Pro
-<p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif"></p>
+<p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/215159425-b5544265-b05f-4ae4-a1b9-35b38ea9b8db.gif"></p>
 
 
 ## Challenges
@@ -89,4 +89,15 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 
 
 ## Contact Me
-💬 You can reach me at melissagilv@gmail.com or message me on [LinkedIn](https://www.linkedin.com/in/melissa-gv/).
+💬 Want to connect? I'd love to hear from you! I can be reached at melissagilv@gmail.com on messaged on [LinkedIn](https://www.linkedin.com/in/melissa-gv/)
+
+<a href = "mailto: melissagilv@gmail.com"><img width="30" alt="Gmail logo" src="https://user-images.githubusercontent.com/104800030/215161154-e4a97901-299e-4668-8036-4eaa88887c44.png"></a>   <a href = "https://www.linkedin.com/in/melissa-gv/"><img width="30" alt="LinkedIn logo" src="https://user-images.githubusercontent.com/104800030/215161128-8e4efd05-efe1-4e2e-8e35-9b18650b5f49.png"></a>
+
+
+
+
+
+
+
+
+
