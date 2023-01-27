@@ -14,7 +14,7 @@ function AuthenticationUI() {
     const uiConfig = {
       callbacks: {
         signInSuccessWithAuthResult() {
-          return true
+          return false
         },
         uiShown() {
           document.getElementById('loader').style.display = 'none'
