@@ -38,11 +38,12 @@ Once a user setups up a username or is authenticated they can begin a game. In t
 #### Game Play:
 Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
 
-<img width="333" alt="correct-response-screen" src="https://user-images.githubusercontent.com/104800030/213590524-71459e9f-298d-4679-bbc8-3111664825f2.png"> <img width="333" alt="close-response-screen" src="https://user-images.githubusercontent.com/104800030/213590559-f4428f6d-e00b-4a41-8c71-b79cf1e5b461.png"> <img width="333" alt="incorrect-response-screen" src="https://user-images.githubusercontent.com/104800030/213590691-eb99b1f3-39a2-4027-9ef1-c1f07036cfcf.png">
+<p align="center"><img width="800" alt="game play" src="https://user-images.githubusercontent.com/104800030/214956781-948cbfe4-252f-440d-a4da-11dc8da185f9.gif"></p>
+
 
 #### Results Page:
 Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the the reviews. 
-<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/213817858-d18e5926-caaf-4740-9983-552bdf691e9e.png"> <img width="800" alt="results-page-reviews-expanded" src="https://user-images.githubusercontent.com/104800030/213817805-2b1547e5-9948-4d0d-9bef-09f844c3b5fe.png"></p>
+<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/214982919-479d4907-f7ea-4d60-994b-3eca9157e136.gif"></p>
 
 #### Leaderboard:
 The leaderboard shows the Top Ten scores. This was created by querying the MongoDB database for the top scores usings an aggregate function.
@@ -74,7 +75,8 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 <p align="center"><img width="250" alt="home-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214650148-27fab73e-9122-490b-aad1-1607e3da6f2d.png"> <img width="250" alt="play-iphone12ProMax" src="https://user-images.githubusercontent.com/104800030/214651459-b4dd8c09-f29d-4444-b38b-932b5a9ff414.png"></p>
 
 #### Galaxy S12 Ultra
-<p align="center"><img width="250" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646172-da273f4b-9bb3-45e8-812f-c48338ba8af2.png"> <img width="250" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646353-70ee7e02-a470-4748-973a-5a796e88defb.png"></p>
+<p align="center"><img width="250" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214985292-09e0a21b-9475-44f2-88dd-64b21e47ddde.png"> <img width="250" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214985321-d9d7e776-c21f-47c0-9df9-b451099b836a.png"></p>
+
 
 #### Google Pixel 6 Pro
 <p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif"></p>
