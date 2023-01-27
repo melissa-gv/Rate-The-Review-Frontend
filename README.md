@@ -31,18 +31,19 @@ I developed this app while I was a student at Hack Reactor completing a Software
 
 ### How to Play
 #### Game setup:
-Users enter the zipcode for the location in which they'd like to play.
+Once a user setups up a username or is authenticated they can begin a game. In the game setup screen, they can enter a zipcode for their preferred playing location. Once a zipcode is submitted, the app then fetches restaurants and reviews from from the Yelp Fusion API. For the full backend code, please refer to [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend).
 
-<p align="center"><img width="800" alt="game-setup screen" src="https://user-images.githubusercontent.com/104800030/213586319-78c6f097-0e23-433b-b2cc-be8f818d671b.png"></p>
+<p align="center"><img width="800" alt="fullscreen view of home page" src="https://user-images.githubusercontent.com/104800030/214932415-88b6e2fe-eb3a-4523-b3f9-878b66d09f85.gif"></p>
 
 #### Game Play:
 Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
 
-<img width="333" alt="correct-response-screen" src="https://user-images.githubusercontent.com/104800030/213590524-71459e9f-298d-4679-bbc8-3111664825f2.png"> <img width="333" alt="close-response-screen" src="https://user-images.githubusercontent.com/104800030/213590559-f4428f6d-e00b-4a41-8c71-b79cf1e5b461.png"> <img width="333" alt="incorrect-response-screen" src="https://user-images.githubusercontent.com/104800030/213590691-eb99b1f3-39a2-4027-9ef1-c1f07036cfcf.png">
+<p align="center"><img width="800" alt="game play" src="https://user-images.githubusercontent.com/104800030/214956781-948cbfe4-252f-440d-a4da-11dc8da185f9.gif"></p>
+
 
 #### Results Page:
 Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the the reviews. 
-<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/213817858-d18e5926-caaf-4740-9983-552bdf691e9e.png"> <img width="800" alt="results-page-reviews-expanded" src="https://user-images.githubusercontent.com/104800030/213817805-2b1547e5-9948-4d0d-9bef-09f844c3b5fe.png"></p>
+<p align="center"><img width="800" alt="results-page-reviews-collapsed" src="https://user-images.githubusercontent.com/104800030/214982919-479d4907-f7ea-4d60-994b-3eca9157e136.gif"></p>
 
 #### Leaderboard:
 The leaderboard shows the Top Ten scores. This was created by querying the MongoDB database for the top scores usings an aggregate function.
@@ -74,10 +75,11 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 <p align="center"><img width="250" alt="home-iphone12Pro" src="https://user-images.githubusercontent.com/104800030/214650148-27fab73e-9122-490b-aad1-1607e3da6f2d.png"> <img width="250" alt="play-iphone12ProMax" src="https://user-images.githubusercontent.com/104800030/214651459-b4dd8c09-f29d-4444-b38b-932b5a9ff414.png"></p>
 
 #### Galaxy S12 Ultra
-<p align="center"><img width="250" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646172-da273f4b-9bb3-45e8-812f-c48338ba8af2.png"> <img width="250" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214646353-70ee7e02-a470-4748-973a-5a796e88defb.png"></p>
+<p align="center"><img width="250" alt="play-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214985292-09e0a21b-9475-44f2-88dd-64b21e47ddde.png"> <img width="250" alt="results-galaxy-S21-Ultra" src="https://user-images.githubusercontent.com/104800030/214985321-d9d7e776-c21f-47c0-9df9-b451099b836a.png"></p>
+
 
 #### Google Pixel 6 Pro
-<p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/214646457-194e4ac8-02d7-4d1b-a95d-4cd87d61a3fc.gif"></p>
+<p align="center"><img width="400" alt="leaderboard-Google-Pixel-6Pro" src="https://user-images.githubusercontent.com/104800030/215159425-b5544265-b05f-4ae4-a1b9-35b38ea9b8db.gif"></p>
 
 
 ## Challenges
@@ -87,4 +89,15 @@ Responsive Resizing was kept in mind to accomodate various types of mobile devic
 
 
 ## Contact Me
-💬 You can reach me at melissagilv@gmail.com or message me on [LinkedIn](https://www.linkedin.com/in/melissa-gv/).
+💬 Want to connect? I'd love to hear from you! I can be reached at melissagilv@gmail.com on messaged on [LinkedIn](https://www.linkedin.com/in/melissa-gv/)
+
+<a href = "mailto: melissagilv@gmail.com"><img width="30" alt="Gmail logo" src="https://user-images.githubusercontent.com/104800030/215161154-e4a97901-299e-4668-8036-4eaa88887c44.png"></a>   <a href = "https://www.linkedin.com/in/melissa-gv/"><img width="30" alt="LinkedIn logo" src="https://user-images.githubusercontent.com/104800030/215161128-8e4efd05-efe1-4e2e-8e35-9b18650b5f49.png"></a>
+
+
+
+
+
+
+
+
+
