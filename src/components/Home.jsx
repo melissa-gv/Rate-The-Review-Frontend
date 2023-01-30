@@ -10,27 +10,10 @@ import AuthenticationUI from './AuthenticationUI'
 import PlayAsGuest from './PlayAsGuest'
 
 function Home({ currentUser, setCurrentUser, isLoggedIn }) {
-  // FIXME move this to CSS
-  const logoStyle = {
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    minWidth: '270px',
-    maxWidth: '450px',
-  }
-
-  const authCardStyle = {
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '1px',
-    width: '20rem',
-  }
-
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>
-        <Image src="Rate-the-Review-logos-white.png" style={logoStyle} />
+        <Image src="Rate-the-Review-logos-white.png" id="main-homepage-logo" />
       </Row>
       <Row>
         <h4><em>Guess the Yelp review ratings of your local restaurants.</em></h4>
@@ -50,7 +33,7 @@ function Home({ currentUser, setCurrentUser, isLoggedIn }) {
                 setCurrentUser={setCurrentUser}
               />
               <br />
-              <Card bg="dark" text="light" style={authCardStyle}>
+              <Card bg="dark" text="light" id="auth-card">
                 <Card.Body>
                   <AuthenticationUI />
                 </Card.Body>

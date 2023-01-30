@@ -14,6 +14,22 @@ html {
   padding-bottom: 4rem;
 }
 
+#main-homepage-logo {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 270px;
+  max-width: 450px;
+}
+
+#auth-card {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  width: 20rem;
+}
+
 .footer {
 	position:absolute;
   bottom: 0;
