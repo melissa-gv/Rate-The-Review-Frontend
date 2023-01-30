@@ -55,7 +55,10 @@ The leaderboard shows the Top Ten scores. This was created by querying the Mongo
 #### Firebase Authentication with multiple providers
 Users have the option to sign-in with either their Google, Facebook, or email accounts. This will ensure that game data is saved for each user.
 
-<p align="center"><img width="800" alt="firebase google authentication screen" src="https://user-images.githubusercontent.com/104800030/213815638-ccadd2be-80a5-4231-aceb-c570eee79b15.png"></p>
+<p align="center"><img width="700" alt="firebase google authentication screen" src="https://user-images.githubusercontent.com/104800030/215582907-832b4c8e-fa1a-4354-977c-50b992c4db6e.png"></p>
+<p align="center"><img width="700" alt="facebook authentication screen" src="https://user-images.githubusercontent.com/104800030/215582889-cdec815b-4609-429d-8d82-2b2f8697d4ca.png"></p>
+<p align="center"><img width="700" alt="email authentication screen" src="https://user-images.githubusercontent.com/104800030/215583512-cf94abad-1f1c-49c8-9b31-81fbc18206fc.png"></p>
+
 
 #### Guest Login and Validation
 Alternatively, users can play as a guest without the need to create an account. The username form has input validation that enforces and provides instant feedback once a valid username has been entered.
