@@ -63,7 +63,7 @@ Users have the option to sign-in with either their Google, Facebook, or email ac
 #### Guest Login and Validation
 Alternatively, users can play as a guest without the need to create an account. The username form has input validation that enforces and provides instant feedback once a valid username has been entered.
 
-<img width="450" alt="guest validation error" src="https://user-images.githubusercontent.com/104800030/213288465-7b1ecb09-39ff-4cb7-b272-462134b0ff1e.png"> <img width="450" alt="guest validation success" src="https://user-images.githubusercontent.com/104800030/213288475-b706615a-be7f-4c97-b3db-f10a6a2fbbe8.png">
+<p align="center"><img width="400" alt="guest validation error" src="https://user-images.githubusercontent.com/104800030/213288465-7b1ecb09-39ff-4cb7-b272-462134b0ff1e.png"> <img width="400" alt="guest validation success" src="https://user-images.githubusercontent.com/104800030/213288475-b706615a-be7f-4c97-b3db-f10a6a2fbbe8.png"></p>
 
 ### Accessibility Features:
 - A key focus of the code was to use semantically correct HTML tags to make it screenreader-friendly.
