@@ -24,7 +24,7 @@ function App() {
   const [zipcode, setZipcode] = useState(0)
 
   const SendFBAuthToBackend = () => {
-    axios.put(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
+    axios.post(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
   }
 
   useEffect(() => {

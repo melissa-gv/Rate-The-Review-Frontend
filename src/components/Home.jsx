@@ -52,12 +52,7 @@ function Home({ currentUser, setCurrentUser, isLoggedIn }) {
               <br />
               <Card bg="dark" text="light" style={authCardStyle}>
                 <Card.Body>
-                  <Row>
-                    <h5> Or create an account</h5>
-                  </Row>
-                  <Row>
-                    <AuthenticationUI />
-                  </Row>
+                  <AuthenticationUI />
                 </Card.Body>
               </Card>
             </>

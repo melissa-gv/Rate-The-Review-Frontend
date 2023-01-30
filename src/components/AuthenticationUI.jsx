@@ -6,40 +6,51 @@ import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 
 function AuthenticationUI() {
-  useEffect(() => {
-    // 1) Initialize the FirebaseUI Widget using Firebase.
-    const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth())
+  // 1) Initialize the FirebaseUI Widget using Firebase.
+  const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth())
 
-    // 2) Set up sign-in methods
-    const uiConfig = {
-      callbacks: {
-        signInSuccessWithAuthResult() {
-          return false
-        },
-        uiShown() {
-          document.getElementById('loader').style.display = 'none'
+  // 2) Set up sign-in methods
+  const uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult() {
+        return false
+      },
+      uiShown() {
+        document.getElementById('loader').style.display = 'none'
+      },
+    },
+    signInFlow: 'popup',
+    signInSuccessUrl: '/',
+    signInOptions: [
+      {
+        provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        customParameters: {
+          prompt: 'select_account',
+          auth_type: 'reauthenticate',
         },
       },
-      signInFlow: 'popup',
-      signInSuccessUrl: '/',
-      signInOptions: [
-        {
-          provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          customParameters: {
-            prompt: 'select_account',
-          },
-        },
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      ],
-    }
+      {
+        provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        scopes: [
+          'public_profile',
+          'email',
+        ],
+      },
+      {
+        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: true,
+      },
+    ],
+  }
 
+  useEffect(() => {
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig)
   }, [])
 
   return (
     <>
+      <h5>Or create an account</h5>
       <div id="firebaseui-auth-container" />
       <div id="loader">Loading...</div>
     </>
