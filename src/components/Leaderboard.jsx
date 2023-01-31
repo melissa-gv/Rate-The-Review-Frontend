@@ -9,14 +9,6 @@ const { VITE_HOST } = import.meta.env
 
 function Leaderboard() {
   const [topScores, setTopScores] = useState([])
-  const logoStyle = {
-    width: '250px',
-    height: '250px',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '1px',
-  }
 
   const GetLeaderboardStats = () => {
     axios.get(`${VITE_HOST}/getTopScores`)
@@ -40,7 +32,7 @@ function Leaderboard() {
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>
-        <Image src="Rate-the-Review-logos-white.png" style={logoStyle} />
+        <Image src="Rate-the-Review-logos-white.png" id="leaderboard-logo" />
       </Row>
       <Row>
         <h2>🥇 Leaderboard 🥇</h2>
