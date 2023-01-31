@@ -19,7 +19,7 @@ function Leaderboard() {
   }
 
   const GetLeaderboardStats = () => {
-    axios.get(`${VITE_HOST}/allUsers`)
+    axios.get(`${VITE_HOST}/getTopScores`)
       .then((response) => {
         setTopScores(response.data)
       })
