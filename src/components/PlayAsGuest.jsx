@@ -26,7 +26,7 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
     if (form.checkValidity() === false) {
       event.stopPropagation()
     } else {
-      axios.put(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
+      axios.post(`${VITE_HOST}/auth`, { params: currentUser })
         .catch((err) => {
           console.log(err)
         })
