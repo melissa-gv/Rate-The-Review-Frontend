@@ -73,7 +73,7 @@ function Play({
       score: points,
       restaurants: businesses,
     }
-    axios.put(`${VITE_HOST}/results`, { params })
+    axios.post(`${VITE_HOST}/results`, { params })
   }
 
   const handleSubmitAnswer = (e) => {
