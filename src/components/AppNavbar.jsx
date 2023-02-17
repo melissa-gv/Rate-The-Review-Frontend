@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -35,9 +35,9 @@ function AppNavbar({ currentUser, isLoggedIn }) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavLink to="/" className="nav-link">Home</NavLink>
-            <NavLink to={currentUser.username ? 'setup' : '/'} className="nav-link">Play</NavLink>
-            <NavLink to="leaderboard" className="nav-link">Leaderboard</NavLink>
+            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link" to={currentUser.username ? 'setup' : '/'}>Play</Link>
+            <Link className="nav-link" to="leaderboard">Leaderboard</Link>
           </Nav>
 
           {isLoggedIn
