@@ -35,9 +35,9 @@ function AppNavbar({ currentUser, isLoggedIn }) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavLink to="/" className="nav-link active">Home</NavLink>
-            <NavLink to={currentUser.username ? 'setup' : '/'} className="nav-link active">Play</NavLink>
-            <NavLink to="leaderboard" className="nav-link active">Leaderboard</NavLink>
+            <NavLink to="/" className="nav-link">Home</NavLink>
+            <NavLink to={currentUser.username ? 'setup' : '/'} className="nav-link">Play</NavLink>
+            <NavLink to="leaderboard" className="nav-link">Leaderboard</NavLink>
           </Nav>
 
           {isLoggedIn
