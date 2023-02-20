@@ -22,9 +22,7 @@ function Home({ currentUser, setCurrentUser, isLoggedIn }) {
       {
         isLoggedIn
           ? (
-            <Row>
-              <Link to="/setup"><Button variant="success" size="lg">Play</Button></Link>
-            </Row>
+            <Link to="/setup"><Button variant="success" size="lg">Play</Button></Link>
           )
           : (
             <>
@@ -41,7 +39,7 @@ function Home({ currentUser, setCurrentUser, isLoggedIn }) {
             </>
           )
       }
-
+      <br />
       <br />
       <Row className="justify-content-center" xs={1} sm={1} md={2}>
         <Col md={3}>
