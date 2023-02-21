@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button'
 import firebase from 'firebase/compat/app'
 
 function AppNavbar({ currentUser, isLoggedIn }) {
+  const [expanded, setExpanded] = useState(false)
   const navigate = useNavigate()
 
   const logout = () => {
@@ -15,7 +16,7 @@ function AppNavbar({ currentUser, isLoggedIn }) {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar expanded={expanded} bg="dark" variant="dark" expand="md">
       <Container fluid>
         <Navbar.Brand href="/">
           <img
@@ -28,15 +29,12 @@ function AppNavbar({ currentUser, isLoggedIn }) {
           {' '}
           Rate The Review
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-md-0"
-            style={{ maxHeight: '115px' }}
-          >
-            <Link className="nav-link" to="/">Home</Link>
-            <Link className="nav-link" to={currentUser.username ? 'setup' : '/'}>Play</Link>
-            <Link className="nav-link" to="leaderboard">Leaderboard</Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(!expanded)} />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto my-2 my-md-0" style={{ maxHeight: '115px' }}>
+            <Link onClick={() => setExpanded(false)} className="nav-link" to="/">Home</Link>
+            <Link onClick={() => setExpanded(false)} className="nav-link" to={currentUser.username ? 'setup' : '/'}>Play</Link>
+            <Link onClick={() => setExpanded(false)} className="nav-link" to="leaderboard">Leaderboard</Link>
           </Nav>
 
           {isLoggedIn
