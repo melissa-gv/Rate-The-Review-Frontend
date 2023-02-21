@@ -32,8 +32,7 @@ function AppNavbar({ currentUser, isLoggedIn }) {
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-md-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
+            style={{ maxHeight: '105px' }}
           >
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to={currentUser.username ? 'setup' : '/'}>Play</Link>
