@@ -3,7 +3,7 @@
 <p align="center"><img alt="Rate The Review Logo" src="public/Rate-the-Review-logos-white.png" width="400" /></p>
 
 ## Overview
-Rate the Review is a web app game in which users enter a zipcode and are prompted with local restaurants' Yelp reviews and guess the review rating.
+Rate the Review is a web app game in which users enter a location and are prompted with local restaurants' Yelp reviews and guess the review rating.
 
 [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend)
 
@@ -28,11 +28,11 @@ Rate the Review is a web app game in which users enter a zipcode and are prompte
 <p align="center"><img width="800" alt="fullscreen view of home page" src="https://user-images.githubusercontent.com/104800030/213286200-b640f118-e4ee-4be2-b72c-7f0a6e24095c.png"></p>
 
 ### Background
-I developed this app while I was a student at Hack Reactor completing a Software Engineering Immersive program. This app was part of a solo-sprint in which we were tasked with creating a minimum viable product (MVP) in two days. I have added additional functionality and other enhancements upon completion of the program. 
+I developed this app while I was a student at Hack Reactor completing a Software Engineering Immersive program. This app was part of a solo-sprint in which we were tasked with creating a minimum viable product (MVP) in two days. I have added additional functionality and other enhancements upon completion of the program.
 
 ### How to Play
 #### Game setup:
-Once a user sets up a username or is authenticated they can begin a game. In the game setup screen, they can enter a zipcode for their preferred playing location. Once a zipcode is submitted, the app then fetches restaurants and reviews from the Yelp Fusion API. For the full backend code, please refer to [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend).
+Once a user sets up a username or is authenticated they can begin a game. In the game setup screen, they can enter a location (e.g. New York City", "NYC", "350 5th Ave, New York, NY 10118) for their preferred playing location. Once a valid location is submitted, the app then fetches restaurants and reviews from the Yelp Fusion API. For the full backend code, please refer to [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend).
 
 <p align="center"><img width="800" alt="home page and google authentication demo" src="https://user-images.githubusercontent.com/104800030/214932415-88b6e2fe-eb3a-4523-b3f9-878b66d09f85.gif"></p>
 
@@ -43,7 +43,7 @@ Once the reviews have loaded, users have 15 seconds to read and guess the review
 
 
 #### Results Page:
-Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the reviews. 
+Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the reviews.
 <p align="center"><img alt="results page demo" src="public/results-5x.gif" width="800" /></p>
 
 

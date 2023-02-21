@@ -1,58 +1,65 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 
-const { VITE_HOST } = import.meta.env
+const { VITE_BACKEND_HOST } = import.meta.env
 
 function Setup({
-  setReviews, reviews, setBusinesses, zipcode, setZipcode,
+  setReviews, reviews, setBusinesses, location, setLocation,
 }) {
-  const [isGameStarted, setIsGameStarted] = useState(false)
+  const [submittedLoc, setSubmittedLoc] = useState(false)
+  const [isValidLoc, setIsValidLoc] = useState(undefined)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
     e.preventDefault()
-    setZipcode(e.target.value)
+    setLocation(e.target.value)
+    if (e.target.value.length === 0) {
+      setIsValidLoc(undefined)
+    }
   }
 
-  const handleZipcodeSubmit = (e) => {
+  const handleLocationSubmit = (e) => {
     e.preventDefault()
-    setIsGameStarted(true)
-    axios.get(`${VITE_HOST}/businesses`, { params: { location: zipcode } })
+    setSubmittedLoc(true)
+    axios.get(`${VITE_BACKEND_HOST}/businesses`, { params: { location } })
       .then((response) => {
         setBusinesses(response.data.businesses)
         setReviews(response.data.reviews)
       })
-      .catch((err) => {
-        console.log(err)
-      })
-      .then(() => {
-        navigate('/play')
+      .catch(() => {
+        setIsValidLoc(false)
+        setSubmittedLoc(false)
       })
   }
+
+  useEffect(() => {
+    if (reviews !== undefined) {
+      navigate('/play')
+    }
+  }, [reviews])
 
   return (
     <Container className="justify-content-md-center">
       <br />
-      <Row>
-        <Col>
-          <h2>Enter zipcode:</h2>
-        </Col>
-      </Row>
-      <Form>
-        <Form.Group className="mb-3" controlId="formZipcode">
-          <Form.Label style={{ color: 'white' }}>Zipcode</Form.Label>
-          <Form.Control required onChange={handleChange} type="number" pattern="[0-9]*" placeholder="Zipcode" inputMode="numeric" />
+      <h2>Enter location:</h2>
+      <Form onSubmit={handleLocationSubmit}>
+        <Form.Group className="mb-3" controlId="formlocation">
+          <Form.Label style={{ color: 'white' }}>Location</Form.Label>
+          <Form.Control required onChange={handleChange} placeholder="Location" isInvalid={isValidLoc === undefined ? undefined : !isValidLoc} />
+          <Form.Control.Feedback type="invalid">Could not execute search, try specifying a more exact location.</Form.Control.Feedback>
+          <Form.Text id="formlocation" muted>
+            Examples: &quot;New York City&quot;, &quot;NYC&quot;,
+            &quot;350 5th Ave, New York, NY 10118&quot;
+          </Form.Text>
         </Form.Group>
-        {isGameStarted && !reviews.length
+        {submittedLoc
           ? (
-            <Button variant="success" disabled>
+            <Button variant="success" type="submit" disabled>
               <Spinner
                 as="span"
                 animation="border"
@@ -60,17 +67,10 @@ function Setup({
                 role="status"
                 aria-hidden="true"
               />
-              <span className="visually-hidden">Loading...</span>
-              {' '}
-              Loading...
-              {' '}
+              &nbsp; Loading...
             </Button>
           )
-          : (
-            <Button onClick={handleZipcodeSubmit} variant="success" type="submit">
-              Start
-            </Button>
-          )}
+          : (<Button variant="success" type="submit">Start</Button>)}
       </Form>
     </Container>
   )

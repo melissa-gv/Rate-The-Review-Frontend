@@ -45,7 +45,7 @@ function Home({ currentUser, setCurrentUser, isLoggedIn }) {
         <Col md={3}>
           <h5 style={{ textAlign: 'center' }}>How to Play</h5>
           <ol style={{ textAlign: 'left' }}>
-            <li>Enter zip code</li>
+            <li>Enter a location</li>
             <li>Read review of random local restaurant</li>
             <li>You have 15 seconds to guess the review&apos;s rating</li>
             <li>6 rounds total!</li>

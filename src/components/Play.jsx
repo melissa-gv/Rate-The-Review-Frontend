@@ -8,9 +8,9 @@ import Alert from 'react-bootstrap/Alert'
 import Stars from './Stars'
 import Timer from './Timer'
 
-const { VITE_HOST } = import.meta.env
+const { VITE_BACKEND_HOST } = import.meta.env
 function Play({
-  reviews, businesses, selectedRating, setSelectedRating, points, setPoints, zipcode, currentUser,
+  reviews, businesses, selectedRating, setSelectedRating, points, setPoints, location, currentUser,
 }) {
   const navigate = useNavigate()
   const INITIAL_SECONDS = 15
@@ -69,11 +69,11 @@ function Play({
   const SendGameResultsToBackend = () => {
     const params = {
       username: currentUser.username,
-      zipcode,
+      location,
       score: points,
       restaurants: businesses,
     }
-    axios.post(`${VITE_HOST}/results`, { params })
+    axios.post(`${VITE_BACKEND_HOST}/results`, { params })
   }
 
   const handleSubmitAnswer = (e) => {

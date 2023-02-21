@@ -12,19 +12,19 @@ import Leaderboard from './components/Leaderboard'
 import AppNavbar from './components/AppNavbar'
 import Footer from './components/Footer'
 
-const { VITE_HOST } = import.meta.env
+const { VITE_BACKEND_HOST } = import.meta.env
 
 function App() {
-  const [reviews, setReviews] = useState([])
+  const [reviews, setReviews] = useState()
   const [businesses, setBusinesses] = useState([])
   const [selectedRating, setSelectedRating] = useState(0)
   const [points, setPoints] = useState(0)
   const [currentUser, setCurrentUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState()
-  const [zipcode, setZipcode] = useState(0)
+  const [location, setLocation] = useState()
 
   const SendFBAuthToBackend = () => {
-    axios.post(`${VITE_HOST}/auth`, { params: currentUser }, { withCredentials: true })
+    axios.post(`${VITE_BACKEND_HOST}/auth`, { params: currentUser })
   }
 
   useEffect(() => {
@@ -42,6 +42,7 @@ function App() {
         setCurrentUser({})
       }
     })
+    // FIXME - does this need a cleanup function?
   }, [])
 
   return (
@@ -68,8 +69,8 @@ function App() {
               reviews={reviews}
               setReviews={setReviews}
               setBusinesses={setBusinesses}
-              zipcode={zipcode}
-              setZipcode={setZipcode}
+              location={location}
+              setLocation={setLocation}
             />
           )}
         />
@@ -82,7 +83,7 @@ function App() {
               setSelectedRating={setSelectedRating}
               points={points}
               setPoints={setPoints}
-              zipcode={zipcode}
+              location={location}
               businesses={businesses}
               currentUser={currentUser}
             />
@@ -107,7 +108,6 @@ function App() {
       </Routes>
       <Footer />
     </>
-
   )
 }
 

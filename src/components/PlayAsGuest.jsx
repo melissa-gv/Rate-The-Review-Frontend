@@ -8,25 +8,27 @@ import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
 import { useNavigate } from 'react-router-dom'
 
-const { VITE_HOST } = import.meta.env
+const { VITE_BACKEND_HOST } = import.meta.env
 
 function PlayAsGuest({ currentUser, setCurrentUser }) {
   const [open, setOpen] = useState(false)
+  const [isValidUsername, setIsValidUsername] = useState(undefined)
 
   const navigate = useNavigate()
 
   const handleGuestUsernameChange = (e) => {
     e.preventDefault()
     setCurrentUser({ username: e.target.value })
+    setIsValidUsername(true)
+    if (e.target.value.length === 0) {
+      setIsValidUsername(false)
+    }
   }
 
   const handleSubmitGuestUsername = (event) => {
     event.preventDefault()
-    const form = event.currentTarget
-    if (form.checkValidity() === false) {
-      event.stopPropagation()
-    } else {
-      axios.post(`${VITE_HOST}/auth`, { params: currentUser })
+    if (isValidUsername) {
+      axios.post(`${VITE_BACKEND_HOST}/auth`, { params: currentUser })
         .catch((err) => {
           console.log(err)
         })
@@ -57,13 +59,10 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
 
         <Form noValidate onSubmit={handleSubmitGuestUsername}>
           <Row className="align-items-center justify-content-center">
-
-            <Form.Group as={Col} md="4" className="my-1 was-validated">
+            <Form.Group as={Col} md="4" className="my-1">
               <Form.Label htmlFor="inlineFormInputGroupUsername">Username</Form.Label>
               <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">
-                  @
-                </InputGroup.Text>
+                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
                 <Form.Control
                   onChange={handleGuestUsernameChange}
                   required
@@ -71,30 +70,22 @@ function PlayAsGuest({ currentUser, setCurrentUser }) {
                   placeholder="Username"
                   aria-describedby="inputGroupPrepend"
                   id="inlineFormInputGroupUsername"
-                  maxLength="12"
+                  maxLength="20"
+                  isValid={isValidUsername}
+                  isInvalid={!isValidUsername}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Please choose a username if playing as a guest.
+                  Please enter a username if playing as a guest.
                 </Form.Control.Feedback>
-
               </InputGroup>
             </Form.Group>
           </Row>
 
-          <Row className="align-items-center justify-content-center my-2">
-            <Col xs="auto" className="my-1">
-              <Form.Check
-                type="checkbox"
-                id="autoSizingCheck2"
-                label="Remember me"
-              />
-            </Col>
-
+          <Row className="align-items-center justify-content-center my-1">
             <Col xs="auto" className="my-1">
               <Button type="submit">Submit</Button>
             </Col>
           </Row>
-
         </Form>
 
       </Collapse>

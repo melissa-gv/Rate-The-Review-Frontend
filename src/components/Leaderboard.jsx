@@ -5,13 +5,13 @@ import Row from 'react-bootstrap/Row'
 import Table from 'react-bootstrap/Table'
 import Image from 'react-bootstrap/Image'
 
-const { VITE_HOST } = import.meta.env
+const { VITE_BACKEND_HOST } = import.meta.env
 
 function Leaderboard() {
   const [topScores, setTopScores] = useState([])
 
   const GetLeaderboardStats = () => {
-    axios.get(`${VITE_HOST}/getTopScores`)
+    axios.get(`${VITE_BACKEND_HOST}/getTopScores`)
       .then((response) => {
         setTopScores(response.data)
       })
