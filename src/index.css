@@ -23,6 +23,10 @@ html {
   max-width: 450px;
 }
 
+#results-page {
+	overflow-y: scroll;
+}
+
 #auth-card {
 	display: block;
   margin-left: auto;

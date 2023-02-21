@@ -16,7 +16,7 @@ function Results({ reviews, businesses, points }) {
   }
 
   return (
-    <Container>
+    <Container id="results-page">
       <br />
       <Row>
         <h1 className="text-center">
