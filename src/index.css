@@ -3,6 +3,26 @@ html {
 	background-color: #1c1c1c;
 }
 
+#headerBackground {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+	width: 100%;
+  background-color: #212529;
+}
+
+#footerBackground {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background-color: #1c1c1c;
+	width: 100%;
+}
+
 #root {
 	position: relative;
 	min-height: 100vh;
@@ -13,6 +33,17 @@ html {
 
 #content-wrap {
   padding-bottom: 4rem;
+}
+
+.footer {
+	position:absolute;
+  bottom: 0;
+  width: 100%;
+	height: 4rem;
+  color: rgb(180, 180, 180);
+  text-align: center;
+	font-size: small;
+	text-align: 'center';
 }
 
 #main-homepage-logo {
@@ -38,17 +69,6 @@ html {
   margin-left: auto;
   margin-right: auto;
   padding: 1px;
-}
-
-.footer {
-	position:absolute;
-  bottom: 0;
-  width: 100%;
-	height: 4rem;
-  color: rgb(180, 180, 180);
-  text-align: center;
-	font-size: small;
-	text-align: 'center';
 }
 
 .stars-container {
