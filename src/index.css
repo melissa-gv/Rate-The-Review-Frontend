@@ -1,5 +1,5 @@
 html {
-  overflow-y: auto;
+  overflow-y: scroll;
 	background-color: #1c1c1c;
 }
 
@@ -21,10 +21,6 @@ html {
   margin-right: auto;
   min-width: 270px;
   max-width: 450px;
-}
-
-#results-page {
-	overflow-y: scroll;
 }
 
 #auth-card {
