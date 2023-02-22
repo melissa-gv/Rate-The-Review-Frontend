@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,7 +9,14 @@ import { Link } from 'react-router-dom'
 import AuthenticationUI from './AuthenticationUI'
 import PlayAsGuest from './PlayAsGuest'
 
-function Home({ currentUser, setCurrentUser, isLoggedIn }) {
+function Home({
+  currentUser, setCurrentUser, isLoggedIn, setReviews, setPoints,
+}) {
+  useEffect(() => {
+    setReviews(undefined)
+    setPoints(0)
+  }, [])
+
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>

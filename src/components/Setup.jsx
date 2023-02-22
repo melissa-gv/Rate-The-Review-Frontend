@@ -9,11 +9,16 @@ import Spinner from 'react-bootstrap/Spinner'
 const { VITE_BACKEND_HOST } = import.meta.env
 
 function Setup({
-  setReviews, reviews, setBusinesses, location, setLocation,
+  reviews, setReviews, setBusinesses, location, setLocation, setPoints,
 }) {
   const [submittedLoc, setSubmittedLoc] = useState(false)
   const [isValidLoc, setIsValidLoc] = useState(undefined)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setReviews(undefined)
+    setPoints(0)
+  }, [])
 
   const handleChange = (e) => {
     e.preventDefault()

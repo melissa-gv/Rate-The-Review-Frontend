@@ -59,6 +59,8 @@ function App() {
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
               isLoggedIn={isLoggedIn}
+              setReviews={setReviews}
+              setPoints={setPoints}
             />
           )}
         />
@@ -71,6 +73,7 @@ function App() {
               setBusinesses={setBusinesses}
               location={location}
               setLocation={setLocation}
+              setPoints={setPoints}
             />
           )}
         />
