@@ -18,16 +18,18 @@ function AppNavbar({ currentUser, isLoggedIn }) {
   return (
     <Navbar expanded={expanded} bg="dark" variant="dark" expand="md">
       <Container fluid>
-        <Navbar.Brand href="/">
-          <img
-            alt="logo"
-            src="/Rate-the-Review-logos-black-cropped.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />
-          {' '}
-          Rate The Review
+        <Navbar.Brand>
+          <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+            <img
+              alt="logo"
+              src="/Rate-the-Review-logos-black-cropped.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            {' '}
+            Rate the Review
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(!expanded)} />
         <Navbar.Collapse id="responsive-navbar-nav">
