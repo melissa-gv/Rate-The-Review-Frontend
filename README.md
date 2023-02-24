@@ -20,6 +20,8 @@ Rate the Review is a web app game in which users enter a location and are prompt
 ![YELP Fusion API](https://img.shields.io/badge/Yelp%20Fusion%20API%20-red?style=for-the-badge&logo=appveyor&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Axios](https://img.shields.io/badge/Axios-purple?style=for-the-badge&logo=appveyor&logoColor=white)
+![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![NGINX](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
 ![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
 ![ESLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
