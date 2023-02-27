@@ -98,6 +98,14 @@ Responsive Resizing was kept in mind to accommodate various types of mobile devi
 
 
 ## Contact Me
-💬 Want to connect? I'd love to hear from you! I can be reached at melissagilv@gmail.com on messaged on [LinkedIn](https://www.linkedin.com/in/melissa-gv/).
+💬 Want to connect? I'd love to hear from you!
+<p align="center">
+  <a href="https://www.linkedin.com/in/melissa-gv/" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&amp;style=for-the-badge&amp;logo=linkedin&amp;logoColor=white">
+  </a>
+  &nbsp; &nbsp;
+  <a href="mailto:melissagilv@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+  </a>
+</p>
 
-<a href = "mailto: melissagilv@gmail.com"><img width="30" alt="Gmail logo" src="https://user-images.githubusercontent.com/104800030/215161154-e4a97901-299e-4668-8036-4eaa88887c44.png"></a>   <a href = "https://www.linkedin.com/in/melissa-gv/"><img width="30" alt="LinkedIn logo" src="https://user-images.githubusercontent.com/104800030/215161128-8e4efd05-efe1-4e2e-8e35-9b18650b5f49.png"></a>
