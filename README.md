@@ -36,23 +36,23 @@ http://playratethereview.com
 I developed this app while I was a student at Hack Reactor completing a Software Engineering Immersive program. This app was part of a solo-sprint in which we were tasked with creating a minimum viable product (MVP) in two days. I have added additional functionality and other enhancements upon completion of the program.
 
 ### How to Play
-#### Game setup:
+#### Game setup
 Once a user sets up a username or is authenticated they can begin a game. In the game setup screen, they can enter a location (e.g. New York City", "NYC", "350 5th Ave, New York, NY 10118) for their preferred playing location. Once a valid location is submitted, the app then fetches restaurants and reviews from the Yelp Fusion API. For the full backend code, please refer to [Backend Repo](https://github.com/melissa-gv/Rate-The-Review-Backend).
 
 <p align="center"><img width="800" alt="home page and google authentication demo" src="https://user-images.githubusercontent.com/104800030/214932415-88b6e2fe-eb3a-4523-b3f9-878b66d09f85.gif"></p>
 
-#### Game Play:
+#### Game Play
 Once the reviews have loaded, users have 15 seconds to read and guess the reviews' rating. Once a response is submitted, descriptive feedback is provided to relay if the guess was correct, incorrect, or close. It also communicates the number of points gained for the round as well as total points for the current game. Emoticons were added to the results alert to clearly show the round's result so as to not rely on color alone to convey a response.
 
 <p align="center"><img width="800" alt="game play demo" src="https://user-images.githubusercontent.com/104800030/214956781-948cbfe4-252f-440d-a4da-11dc8da185f9.gif"></p>
 
 
-#### Results Page:
+#### Results Page
 Upon completion of the game, the interactive results page displays the restaurants that were played along with any relevant information about the restaurant, links to the full Yelp page, and an accordion that shows the reviews.
 <p align="center"><img alt="results page demo" src="public/results-5x.gif" width="800" /></p>
 
 
-#### Leaderboard:
+#### Leaderboard
 The leaderboard shows the Top Ten scores. This was created by querying the MongoDB database for the top scores usings an aggregate function.
 
 <p align="center"><img width="800" alt="leaderboard" src="https://user-images.githubusercontent.com/104800030/213587955-8d07dab9-48d2-4cf6-9d01-c2684bd4f031.png"></p>
@@ -71,7 +71,7 @@ Alternatively, users can play as a guest without the need to create an account. 
 
 <p align="center"><img width="400" alt="guest validation error" src="https://user-images.githubusercontent.com/104800030/213288465-7b1ecb09-39ff-4cb7-b272-462134b0ff1e.png"> <img width="400" alt="guest validation success" src="https://user-images.githubusercontent.com/104800030/213288475-b706615a-be7f-4c97-b3db-f10a6a2fbbe8.png"></p>
 
-### Accessibility Features:
+### Accessibility Features
 - A key focus of the code was to use semantically correct HTML tags to make it screenreader-friendly.
 - User input feedback uses icons and does not rely on color alone to relay a response back to the user.
 - Descriptive alt tags are added to images to convey meaning for visually-impaired players.
